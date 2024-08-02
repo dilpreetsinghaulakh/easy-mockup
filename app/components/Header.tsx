@@ -135,7 +135,7 @@ export default function Header() {
                   menuRef.current.classList.toggle("hidden");
                   menuRef.current.classList.toggle("flex");
                 }
-              }, 500)
+              }, 300)
             : (menuRef.current.classList.toggle("hidden"),
               menuRef.current.classList.toggle("flex"));
 
@@ -150,7 +150,7 @@ export default function Header() {
         menuBtnRef.current
           ? menuBtnRef.current.classList.remove("opacity-0")
           : null;
-      }, 300);
+      }, 100);
     }
   }
 
@@ -177,7 +177,7 @@ export default function Header() {
           </div>
           <button
             ref={menuBtnRef}
-            className="sm:hidden transition duration-300"
+            className="sm:hidden transition duration-200"
             onClick={handleMenuBtnClick}
           >
             {isOpen ? (
@@ -191,7 +191,7 @@ export default function Header() {
         <div
           id="menu"
           ref={menuRef}
-          className="absolute hidden sm:!hidden -z-10 top-0 left-0 w-screen h-screen items-center backdrop-blur opacity-0 transition duration-500"
+          className="absolute hidden sm:!hidden -z-10 top-0 left-0 w-screen h-screen items-center backdrop-blur opacity-0 transition duration-300"
         >
           <MenuContent />
         </div>
