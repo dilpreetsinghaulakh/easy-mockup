@@ -54,7 +54,8 @@ function Links({
     <>
       <Link href="/docs" text="Docs" number={1} printNumber={numbers} />
       <Link href="/examples" text="Examples" number={2} printNumber={numbers} />
-      <Link href="/" text="Donate 💸" number={3} printNumber={numbers} /> {/* to be added */}
+      <Link href="/" text="Donate 💸" number={3} printNumber={numbers} />{" "}
+      {/* to be added */}
       <div className="w-[1px] bg-text-tertiary opacity-30"></div>
       <a
         href="https://github.com/dilpreetsinghaulakh/mockup"
@@ -154,45 +155,48 @@ export default function Header() {
   }
 
   return (
-    <header className="fixed z-50 w-screen m-0 px-8 py-8 bg-gradient-to-t from-transparent to-background-primary to-95% ">
-      <div className="max-w-5xl mx-auto flex justify-between items-center">
-        <a
-          className="flex items-center text-sm font-mono hover:ring-gray-500/50 active:ring-gray-500/50 ring-2 ring-transparent transition rounded"
-          href="/"
-        >
-          <Image
-            className="w-8 dark:filter dark:invert"
-            src={"self-logo.svg"}
-            alt="Logo"
-            height={100}
-            width={100}
-          />
-          <span className="mx-1 text-xs text-text-secondary">/</span>
-          Mockup
-        </a>
-        <div className="hidden sm:flex gap-8">
-          <Links />
+    <>
+      <header className="fixed z-50 w-screen m-0 px-8 py-8 bg-gradient-to-t from-transparent to-background-primary to-95%">
+        <div className="max-w-5xl mx-auto flex justify-between items-center">
+          <a
+            className="flex items-center text-sm font-mono hover:ring-gray-500/50 active:ring-gray-500/50 ring-2 ring-transparent transition rounded"
+            href="/"
+          >
+            <Image
+              className="w-8 dark:filter dark:invert"
+              src={"self-logo.svg"}
+              alt="Logo"
+              height={100}
+              width={100}
+            />
+            <span className="mx-1 text-xs text-text-secondary">/</span>
+            Mockup
+          </a>
+          <div className="hidden sm:flex gap-8">
+            <Links />
+          </div>
+          <button
+            ref={menuBtnRef}
+            className="sm:hidden transition duration-300"
+            onClick={handleMenuBtnClick}
+          >
+            {isOpen ? (
+              <MenuIconClose className={menuBtnClasses} />
+            ) : (
+              <MenuIconOpen className={menuBtnClasses} />
+            )}
+          </button>
         </div>
-        <button
-          ref={menuBtnRef}
-          className="sm:hidden transition duration-300"
-          onClick={handleMenuBtnClick}
-        >
-          {isOpen ? (
-            <MenuIconClose className={menuBtnClasses} />
-          ) : (
-            <MenuIconOpen className={menuBtnClasses} />
-          )}
-        </button>
-      </div>
 
-      <div
-        id="menu"
-        ref={menuRef}
-        className="absolute hidden -z-10 top-0 left-0 w-screen h-screen items-center backdrop-blur opacity-0 transition duration-500"
-      >
-        <MenuContent />
-      </div>
-    </header>
+        <div
+          id="menu"
+          ref={menuRef}
+          className="absolute hidden sm:!hidden -z-10 top-0 left-0 w-screen h-screen items-center backdrop-blur opacity-0 transition duration-500"
+        >
+          <MenuContent />
+        </div>
+      </header>
+      <div className="h-24"></div> {/* for padding */}
+    </>
   );
 }
