@@ -1,6 +1,11 @@
-import Hero from "./components/home/hero";
-
+import HeadsUp from "./components/home/HeadsUp";
+import Hero from "./components/home/Hero";
 
 export default function Home() {
-  return <Hero />;
+  return (
+    <>
+      <Hero />
+      <HeadsUp />
+    </>
+  );
 }
