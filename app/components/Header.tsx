@@ -26,7 +26,7 @@ function Links({
   numbers?: boolean;
 }) {
   const linkClasses =
-    "text-text-secondary hover:text-text-primary active:text-text-primary transition-colors" +
+    "text-text-secondary translate-y-1 hover:text-text-primary active:text-text-primary transition-colors" +
     " " +
     className;
 
