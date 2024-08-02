@@ -19,6 +19,11 @@ const config: Config = {
           tertiary: "rgb(var(--color-text-tertiary), <alpha-value>)",
         },
       },
+      fontFamily: {
+        serif: "var(--font-serif)",
+        sans: "var(--font-sans-serif)",
+        mono: "var(--font-mono)",
+      },
     },
   },
   plugins: [],
