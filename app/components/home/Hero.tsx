@@ -18,15 +18,15 @@ export default function Hero() {
         <h1
           className={`text-5xl font-bold sm:text-center ${fontSpl.className}`}
         >
-          The <span className="text-blue-600 dark:text-blue-400">'shadcn'</span>{" "}
+          The <span className="text-blue-600 dark:text-blue-400">&apos;shadcn&apos;</span>{" "}
           of <span className="text-amber-700 dark:text-amber-400">Mockups</span>
         </h1>
         <p className="mt-8 sm:text-center font-serif text-lg text-text-secondary">
-          Copy 'n paste pure vector mockups where ever you want
+          Copy &apos;n paste pure vector mockups where ever you want
         </p>
         <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mt-10 font-mono">
           <a
-            className="bg-lime-400 text-black border border-transparent hover:border-lime-700 dark:hover:border-black dark:hover:ring-1 ring-white px-6 py-3 rounded-lg transition-colors"
+            className="bg-lime-400 text-black border border-transparent hover:border-lime-700 dark:hover:border-lime-700 dark:hover:ring-lime-300 ring-1 ring-transparent px-6 py-3 rounded-lg transition"
             href="/docs"
           >
             Get Started
