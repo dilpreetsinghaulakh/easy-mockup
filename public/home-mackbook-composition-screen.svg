@@ -1,0 +1,15 @@
+<svg width="967" height="895" viewBox="0 0 967 895" fill="none" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <path
+        d="M14 98C6.26801 98 0 104.268 0 112V726H967V112C967 104.268 960.732 98 953 98H547C545.5 98 542.5 98 542.5 100.5V110C542.5 114.418 538.918 118 534.5 118H432.5C428.082 118 424.5 114.418 424.5 110V100.5C424.5 98 421.5 98 420 98H14Z"
+        fill="url(#pattern0_773_129)" />
+    <defs>
+        <pattern id="pattern0_773_129" patternContentUnits="objectBoundingBox" width="1" height="1">
+            <use xlink:href="#image0_773_129"
+                transform="matrix(0.00390625 0 0 0.00601488 0 -0.269904)" />
+        </pattern>
+        <image id="image0_773_129" width="256" height="256"
+            xlink:href="https://unsplash.com/photos/DgS5jQ95aXM/download?w=720" />
+    </defs>
+</svg>
+    
