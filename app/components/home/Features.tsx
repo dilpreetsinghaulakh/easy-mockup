@@ -21,8 +21,8 @@ function Breakdown() {
               height={895}
             />
           </div>
-          <p className="text-center">Base</p>
-          <ul className="font-mono text-center">
+          <p className="text-center mt-2">Base</p>
+          <ul className="font-mono text-text-secondary text-center">
             <li>100% Vector</li>
             <li>Scalable</li>
             <li>Accurate depiction</li>
@@ -40,8 +40,8 @@ function Breakdown() {
               src="/home-mackbook-composition-screen.svg"
             />
           </div>
-          <p className="text-center">Screen</p>
-          <ul className="font-mono text-center">
+          <p className="text-center mt-2">Screen</p>
+          <ul className="font-mono text-text-secondary text-center">
             <li>True screen mask</li>
             <li>No overlaying elements</li>
             <li>Accurate depiction</li>
@@ -52,18 +52,73 @@ function Breakdown() {
   );
 }
 
+function Code({ code, emphasize }: { code: string; emphasize?: number }) {
+  return (
+    <div className="bg-background-secondary/50 border border-text-tertiary/50 p-4 rounded-2xl">
+      <div className="font-mono text-sm text-text-tertiary whitespace-pre-wrap">
+        {code.split("\n").map((line, index) => (
+          <p
+            key={index}
+            className={
+              "mb-1" +
+              (index == emphasize
+                ? " text-blue-700 dark:text-blue-400 font-bold"
+                : "")
+            }
+          >
+            {line}
+          </p>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Execution() {
+  const testCode = `
+function Mockup(children) {
+  return (
+    <svg>
+    ...
+      <foreignObject>
+        <div style={...}>
+          {children}
+        </div>
+      </foreignObject>
+    ...
+    <svg>
+  );
+}`;
+  return (
+    <>
+      <Code code={testCode} emphasize={7} />
+      <p className="font-serif text-text-secondary mt-4">
+        Thats it, just a{" "}
+        <span className="bg-background-secondary/50 border border-text-tertiary/50 px-2 rounded font-mono">
+          foreignObject
+        </span>{" "}
+        with a div inside. This is the most basic way to use the mockup. It
+        provides a lot of flexibility and control over the content. Please note
+        that the there are some limitations to this approach especially when it
+        comes to transitions and animations.
+      </p>
+    </>
+  );
+}
+
 export default function Features() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <main
-      ref={containerRef}
-      className="max-w-5xl mx-auto px-8 lg:px-0 mt-16 mb-96"
-    >
+    <main ref={containerRef} className="max-w-5xl mx-auto px-8 lg:px-0 mt-16">
       <h1 className="font-serif text-5xl text-center text-purple-800 dark:text-purple-200 mb-8">
         Composition
       </h1>
       <Breakdown />
+      <h1 className="font-serif text-5xl text-center text-teal-700 dark:text-teal-200 my-8">
+        Execution
+      </h1>
+      <Execution />
     </main>
   );
 }
