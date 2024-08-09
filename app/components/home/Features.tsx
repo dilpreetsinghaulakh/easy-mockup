@@ -9,7 +9,7 @@ function Breakdown() {
       <div className="flex flex-col w-full sm:flex-row gap-4 relative">
         <div className="flex flex-col gap-2 items-center sm:w-1/2">
           <div
-            className="flex justify-center rounded-2xl bg-background-secondary"
+            className="flex justify-center bg-background-secondary/50 border border-text-tertiary/50 p-4 rounded-2xl"
             style={{
               aspectRatio: "1376/895",
             }}
@@ -30,9 +30,9 @@ function Breakdown() {
         </div>
         <div className="flex flex-col gap-2 items-center sm:w-1/2">
           <div
-            className="flex justify-center w-full relative sm:h-full rounded-2xl bg-background-secondary"
+            className="flex justify-center items-center w-full relative sm:h-full bg-background-secondary/50 border border-text-tertiary/50 p-4 rounded-2xl"
             style={{
-              aspectRatio: "1376/895",
+              aspectRatio: "1.53/1",
             }}
           >
             <embed
