@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import { useRef } from "react";
-import "./features.css";
 
 function Breakdown() {
   return (
@@ -111,11 +110,11 @@ export default function Features() {
 
   return (
     <main ref={containerRef} className="max-w-5xl mx-auto px-8 lg:px-0 mt-16">
-      <h1 className="font-serif text-5xl text-center text-purple-800 dark:text-purple-200 mb-8">
+      <h1 className="text-5xl text-center text-purple-800 dark:text-purple-200 mb-8">
         Composition
       </h1>
       <Breakdown />
-      <h1 className="font-serif text-5xl text-center text-teal-700 dark:text-teal-200 my-8">
+      <h1 className="text-5xl text-center text-teal-700 dark:text-teal-200 mt-16 mb-8">
         Execution
       </h1>
       <Execution />
