@@ -2,11 +2,15 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./components/Header";
 import localFont from "next/font/local";
+import { JetBrains_Mono as Jet } from "next/font/google";
+import Footer from "./components/Footer";
 
-const fontMono = localFont({
-  src: "font-mono.woff2",
-  variable: "--font-mono",
-});
+const fontMono = Jet({ subsets: ["latin"], variable: "--font-mono" });
+
+// localFont({
+//   src: "font-mono.woff2",
+//   variable: "--font-mono",
+// });
 
 const fontSansSerif = localFont({
   src: "font-sans-serif.otf",
@@ -35,6 +39,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
