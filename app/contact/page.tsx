@@ -7,7 +7,7 @@ import { useRef } from "react";
 const personalEmail = process.env.NEXT_PUBLIC_PERSONAL_EMAIL;
 
 function ContactForm() {
-  const formId = process.env.NEXT_PUBLIC_FORMSPREE_CONTACT_FORM_ID;
+  const formId = process.env.NEXT_PUBLIC_FORMSPREE_CONTACT_FORM_ID || "UNKNOWN";
 
   const formRef = useRef<HTMLFormElement>(null);
   const nameInputRef = useRef<HTMLInputElement>(null);
@@ -43,9 +43,14 @@ function ContactForm() {
     }
   }
 
-  if (!formId) {
+  const [state, handleSubmit, reset] = useForm(formId);
+
+  if (!formId || formId === "UNKNOWN") {
     return (
       <div className="text-center bg-background-secondary/50 !bg-origin-border border border-text-primary/10 text-text-secondary w-full h-96 px-4 flex flex-col items-center justify-center rounded-3xl">
+        <p className="text-sm text-text-primary mb-4 px-3 py-1 rounded-full bg-red-500/10 border border-red-500">
+          Error: &apos;Form id not found&apos;
+        </p>
         <p>
           The contact form is not available right now. Please try again later.
         </p>
@@ -61,8 +66,6 @@ function ContactForm() {
       </div>
     );
   }
-
-  const [state, handleSubmit, reset] = useForm(formId);
 
   if (state.succeeded) {
     setTimeout(() => {
@@ -130,7 +133,7 @@ export default function ContactPage() {
   return (
     <main className="mx-auto px-8 lg:px-0 max-w-5xl font-mono flex flex-col gap-8 items-center justify-center min-h-[calc(100vh-6rem)] xl:min-h-[calc(100vh-9rem)] py-2">
       <ContactForm />
-      <div className="p-3 border border-text-primary/10 bg-background-secondary rounded-full flex gap-4 items-center text-sm xl:text-base">
+      <div className="p-3 border border-text-primary/10 bg-background-secondary/50 rounded-full flex gap-4 items-center text-sm xl:text-base">
         <div className="w-12 h-12 p-3  xl:w-14 xl:h-14 xl:p4 bg-sky-300 text-sky-950 rounded-full flex items-center justify-center">
           <Mail />
         </div>
