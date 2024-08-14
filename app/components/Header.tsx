@@ -164,7 +164,7 @@ export default function Header() {
           >
             <Image
               className="w-8 dark:filter dark:invert"
-              src={"self-logo.svg"}
+              src={"/self-logo.svg"}
               alt="Logo"
               height={100}
               width={100}
