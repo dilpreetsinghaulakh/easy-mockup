@@ -7,7 +7,7 @@
   --color-background-secondary: 245, 245, 245;
   --color-text-primary: 0, 0, 0;
   --color-text-secondary: 68, 68, 68;
-  --color-text-tertiary: 108, 117, 125;
+  --color-text-tertiary: 80, 93, 106;
 }
 
 @media (prefers-color-scheme: dark) {
