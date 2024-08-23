@@ -4,19 +4,15 @@ import { useRef } from "react";
 import { ChevronDown } from "react-feather";
 
 function Links({ links }: { links: { [key: string]: string[] } }) {
+  const currentPath = usePathname();
   return (
     <>
       <div>
-        <a
-          href={"/docs"}
-          id={usePathname() === "/docs" ? "current" : undefined}
-        >
+        <a href={"/docs"} id={currentPath === "/docs" ? "current" : undefined}>
           Introduction
         </a>
       </div>
       {Object.entries(links).map(([section, pages]) => {
-        const currentPath = usePathname();
-
         return (
           <div key={section}>
             <p>{section}</p>
@@ -50,6 +46,7 @@ export default function Sidebar({
 }) {
   const mobileMenuBtnRef = useRef<HTMLButtonElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const currentPath = usePathname();
 
   function handleMobileMenuBtnClick() {
     function toggleMobileMenu() {
@@ -88,7 +85,7 @@ export default function Sidebar({
       </div>
       <div className="flex items-center justify-center lg:hidden overflow-hidden">
         <p className="capitalize bg-background-secondary/50 border border-text-primary/10 px-4 py-1 rounded-full">
-          {usePathname()
+          {currentPath
             .replaceAll("-", " ")
             .slice(1)
             .split("/")
