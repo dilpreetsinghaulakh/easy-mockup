@@ -4,32 +4,43 @@ import { useRef } from "react";
 import { ChevronDown } from "react-feather";
 
 function Links({ links }: { links: { [key: string]: string[] } }) {
-  return Object.entries(links).map(([section, pages]) => (
+  return (
     <>
-      <p>{section}</p>
-      {pages.map((page) => (
+      <div>
         <a
-          id={
-            usePathname().includes(
-              section.toLowerCase().replaceAll(" ", "-") +
-                "/" +
-                page.toLowerCase().replaceAll(" ", "-")
-            )
-              ? "current"
-              : undefined
-          }
-          key={page}
-          href={`/docs/${
-            section.toLocaleLowerCase().replaceAll(" ", "-") +
-            "/" +
-            page.toLowerCase().replaceAll(" ", "-")
-          }`}
+          href={"/docs"}
+          id={usePathname() === "/docs" ? "current" : undefined}
         >
-          {page}
+          Introduction
         </a>
-      ))}
+      </div>
+      {Object.entries(links).map(([section, pages]) => {
+        const currentPath = usePathname();
+
+        return (
+          <div key={section}>
+            <p>{section}</p>
+
+            {pages.map((page) => {
+              const formattedSection = section.toLowerCase().replace(/ /g, "-");
+              const formattedPage = page.toLowerCase().replace(/ /g, "-");
+              const path = `/${formattedSection}/${formattedPage}`;
+
+              return (
+                <a
+                  id={currentPath.includes(path) ? "current" : undefined}
+                  key={path}
+                  href={`/docs${path}`}
+                >
+                  {page}
+                </a>
+              );
+            })}
+          </div>
+        );
+      })}
     </>
-  ));
+  );
 }
 
 export default function Sidebar({
@@ -46,21 +57,30 @@ export default function Sidebar({
       mobileMenuRef.current?.classList.toggle("h-0");
       mobileMenuRef.current?.classList.toggle("opacity-0");
       mobileMenuRef.current?.classList.toggle("opacity-100");
+      mobileMenuBtnRef.current?.classList.toggle("rotate-180");
+      document.body.classList.toggle("overflow-hidden");
     }
 
     toggleMobileMenu();
-    mobileMenuBtnRef.current?.classList.toggle("rotate-180");
-    document.body.classList.toggle("overflow-hidden");
+
+    const handleResize = () => {
+      if (window.innerWidth > 1024) {
+        toggleMobileMenu();
+        window.removeEventListener("resize", handleResize);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
   }
 
   const commonLinkContainerClasses =
-    " flex-col [&>p]:mt-2 [&>p]:font-medium [&>*]:py-2 [&>a]:transition-colors [&>a]:text-text-tertiary [&>a:hover]:text-text-secondary";
+    " flex-col [&>div]:flex [&>div]:flex-col [&>div>p]:mt-2 [&>div>p]:font-medium [&>div>*]:py-2 [&>div>a]:transition-colors [&>div>a]:text-text-tertiary [&>div>a:hover]:text-text-secondary";
 
   return (
-    <nav className="w-full lg:w-80 py-4 relative lg:sticky lg:top-24 lg:h-[calc(100vh-8rem)] overflow-y-scroll">
+    <nav className="w-full lg:w-64 py-4 relative lg:sticky lg:top-24 lg:h-[calc(100vh-8rem)] overflow-y-scroll">
       <div
         className={
-          "hidden lg:flex text-sm lg:pl-2 xl:pl-0 [&>#current]:font-bold [&>#current]:text-blue-700 [&>#current]:dark:text-blue-500" +
+          "hidden lg:flex text-sm [&>div>#current]:font-bold [&>div>#current]:text-blue-700 [&>div>#current]:dark:text-blue-500" +
           commonLinkContainerClasses
         }
       >
