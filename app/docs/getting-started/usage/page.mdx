@@ -1,0 +1,57 @@
+import Image from "next/image";
+import ImageCaption from "../../ImageCaption";
+
+# Usage
+
+<Image
+  src="/docs-usage.webp"
+  className="w-full h-auto rounded-xl border border-text-primary/10 mb-0"
+  alt="Intro image"
+  width={2160}
+  height={960}
+/>
+<ImageCaption>Importing mockup component</ImageCaption>
+
+After creating the component you can use mockups wherever you want. You can put
+anything in them or even animate them (kind of). It can be as simple as an image
+or as complex as changing elements inside using scroll position. Possibilities
+are endless, it's up to your needs/creativity to use these components.
+
+---
+
+## ❗️ Limitation - Please read!
+
+These components use **_&lt;foreignObject&gt;_** svg element to put dom elements
+inside screen of mockups. This makes them as compatible as foreignObject element
+itself, meaning that their functionality is directly dependent on the level of
+support that different browsers and environments provide for this SVG feature.
+
+For example, animations inside of foreignObject breaks them in Safari browser.
+
+In Safari using foreignObject with any of these properties will yield in
+unexpected behavior.
+
+- position
+- webkit-transform-style
+- webkit-backface-visibility
+- transition
+- transform
+- calc (The calculation result may not conform to the expectation)
+- opacity
+
+This is well known issue and not limited to this project,
+[read more](https://stackoverflow.com/a/75445782).
+
+You can circumvent these issues by checking your site on various browsers and if
+there are any issues then either don't use the properties which are causing
+problems at all or block them from running on the browser(s) which have problems.
+
+If you have any other way to avoid these issues please let me know.
+
+---
+
+## Next Steps
+
+This is all you need to get started with using these mockup components. If you
+want to get step-by-step directions to make your first component then you can
+continue docs to read **Hello World**.
