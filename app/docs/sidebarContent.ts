@@ -1,4 +1,4 @@
 export const links = {
-  "Getting Started": ["Setup", "Project Structure"],
+  "Getting Started": ["Setup", "Usage"],
   Components: ["Hello World", "Customization"],
 };
