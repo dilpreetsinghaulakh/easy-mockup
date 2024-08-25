@@ -2,6 +2,7 @@
 import { usePathname } from "next/navigation";
 import { useRef } from "react";
 import { ChevronDown } from "react-feather";
+import packageJson from "../../package.json";
 
 function Links({ links }: { links: { [key: string]: string[] } }) {
   const currentPath = usePathname();
@@ -81,6 +82,10 @@ export default function Sidebar({
           commonLinkContainerClasses
         }
       >
+        <p className="text-xs text-text-tertiary font-light">DOCS FOR </p>
+        <p className="text-l text-text-secondary font-mono mb-4">
+          Ver {packageJson.version}
+        </p>
         <Links links={links} />
       </div>
       <div className="flex items-center justify-center lg:hidden overflow-hidden">
@@ -106,6 +111,12 @@ export default function Sidebar({
           commonLinkContainerClasses
         }
       >
+        <p className="text-xs text-text-tertiary font-light text-right">
+          DOCS FOR{" "}
+        </p>
+        <p className="text-sm text-text-secondary font-mono mb-4 text-right">
+          Ver {packageJson.version}
+        </p>
         <Links links={links} />
       </div>
     </nav>
