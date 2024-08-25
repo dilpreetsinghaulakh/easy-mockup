@@ -17,7 +17,7 @@ export default function DashboardLayout({
 
         <section
           className={
-            "w-auto lg:w-full max-w-none h-full p-4 pt-8 bg-background-secondary/20 border border-text-primary/5 rounded-2xl lg:rounded-3xl " + // layout styles
+            "w-auto lg:w-full max-w-none overflow-hidden h-full p-4 pt-8 bg-background-secondary/20 border border-text-primary/5 rounded-2xl lg:rounded-3xl " + // layout styles
             "prose prose-base prose-h1:text-3xl prose-hr:my-12 prose-hr:border-text-primary/5 prose-neutral dark:prose-invert" // prose styles
           }
         >
